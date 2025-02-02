@@ -20,6 +20,7 @@ function App() {
   function handleSelection(friend) {
       setSelectedFriend(cur => cur?.id === friend.id ? null : friend
       );
+      setShowAddFriend(false);
   }
 
   return (
