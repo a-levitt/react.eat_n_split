@@ -6,7 +6,6 @@ import Button from "./Components/Button.jsx";
 import FormSplitBill from "./Components/FormSplitBill.jsx";
 import {useState} from "react";
 import initialFriends from "./friendsList.js";
-import friend from "./Components/Friend.jsx";
 
 function App() {
   const [friends, setFriends] = useState(initialFriends);
@@ -45,7 +44,13 @@ function App() {
             <Button onClick={()=>setShowAddFriend(!showAddFriend)}>{showAddFriend ? "Close" : "Add friend"}</Button>
           </div>
           <div>
-              {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} onSplitBill={handleSplitBill} />}
+              {selectedFriend &&
+                  (<FormSplitBill
+                  selectedFriend={selectedFriend}
+                  onSplitBill={handleSplitBill}
+                  key={selectedFriend.id}
+                  />)
+              }
           </div>
       </div>
     </>
